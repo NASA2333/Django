@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}blog titles{% endblock %}
+
+{% block content %}
+<div class="row text-center vertical-middle-sm">
+    <h1>第一次编写博客</h1>
+</div>
+<div class="row">
+    <ul>
+        {% for blog in blogs %}
+            <li><a href="{{ blog.id }}">{{ blog.title }}</a> </li>
+        {% endfor %}
+    </ul>
+    <div class="col-xs-6 col-md-4">
+        <h2>广告应用</h2>
+        <p>自己跟着学习Django</p>
+        <img width="200px" src="https://www.bing.com/az/hprichbg/rb/Snow_ZH-CN11178898651_800x480.jpg">
+    </div>
+</div>
+{% endblock %}
