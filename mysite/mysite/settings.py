@@ -26,7 +26,7 @@ SECRET_KEY = '56gesyl=%a)89zhp7!1qj!=c^eo5_e@1bb3ng$4_j@6bcaf0xy'
 DEBUG = True
 
 #debug模式可以为空，当部署到生成环境时，需要将ip填写在这才能通过域名访问
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition，只有将应用程序写在这边才能生效,有些应用是系统默认的
@@ -52,12 +52,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mysite.urls'
-
+#定义模板位置   BASE_DIR   表示项目根目录
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        # 'DIRS': [],
+        'DIRS':[os.path.join(BASE_DIR,'templates')],  #定义模板存储位置
+        'APP_DIRS': False,       #True表示默认方式寻找目录，Flase表示不允许按照默认方式寻找
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -120,6 +121,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
+#设置静态文件
 STATIC_URL = '/static/'
-
+STATICFILES_DIRS=(
+    os.path.join(BASE_DIR,'static'),
+)

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}blog article{% endblock %}
+
+{% block content %}
+<div class="row text-center vertical-middle-sm">
+    <h1>{{ article.title }}</h1>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-8">
+        <p class="text-center">
+            <span>{{ article.author.username }}</span>
+            <span style="margin-left: 30px">{{ publish}}</span>
+        </p>
+        <div>{{ article.body }}</div>
+    </div>
+    <div class="col-xs-6 col-md-4">
+        <h2> 应用广告</h2>
+        <img width="200px" src="https://www.bing.com/az/hprichbg/rb/AberystwythSeafront_ZH-CN9542789062_1366x768.jpg">
+    </div>
+</div>
+
+{% endblock %}
